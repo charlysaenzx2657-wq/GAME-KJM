@@ -72,12 +72,21 @@ object ShizukuManager {
 
     /**
      * Ejecuta un comando shell usando el servicio de Shizuku (equivalente a "adb shell <cmd>").
-     * Devuelve la salida estándar como texto.
+     * Shizuku.newProcess es un método interno no público del SDK, así que se invoca
+     * por reflexión (técnica estándar usada por apps que integran Shizuku).
      */
     fun runShellCommand(command: String): String {
         if (!hasPermission()) return ""
         return try {
-            val process = Shizuku.newProcess(arrayOf("sh", "-c", command), null, null)
+            val method = Shizuku::class.java.getDeclaredMethod(
+                "newProcess",
+                Array<String>::class.java,
+                Array<String>::class.java,
+                String::class.java
+            )
+            method.isAccessible = true
+            val process = method.invoke(null, arrayOf("sh", "-c", command), null, null) as Process
+
             val reader = BufferedReader(InputStreamReader(process.inputStream))
             val output = StringBuilder()
             var line: String?
