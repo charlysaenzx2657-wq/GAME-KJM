@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_gradient_header"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚡ Game Optimizer"
+                android:textColor="@color/bg_dark"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Comprobando estado de Shizuku..."
+                android:textColor="@color/bg_dark"
+                android:textSize="13sp"
+                android:alpha="0.85" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardSetup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:animateLayoutChanges="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnInstallShizuku"
+                style="@style/Theme.GameOptimizer.Button"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Instalar Shizuku"
+                android:layout_marginBottom="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOpenDevOptions"
+                style="@style/Theme.GameOptimizer.Button.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Abrir Opciones de Desarrollador"
+                android:layout_marginBottom="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGrantPermission"
+                style="@style/Theme.GameOptimizer.Button.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Otorgar permiso a Shizuku"
+                android:layout_marginBottom="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGrantOverlay"
+                style="@style/Theme.GameOptimizer.Button.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Permitir panel flotante (FPS/CPU/RAM)" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TUS JUEGOS"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGames"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="12dp"
+            android:clipToPadding="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRestore"
+            style="@style/Theme.GameOptimizer.Button.Outline"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Restaurar ajustes del sistema" />
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
